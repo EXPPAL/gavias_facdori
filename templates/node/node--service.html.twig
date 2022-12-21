@@ -1,0 +1,109 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+{% if view_mode == "teaser" %} 
+  <div class="service-block grid">
+    <div class="box-content">
+       <div class="frontend">
+          <div class="frontend-content">
+            <div class="service-block-content">
+              {% if content.field_service_icon %}
+                <div class="service-icon">{{ content.field_service_icon }}</div>
+              {% endif %}  
+              <div class="service-content">
+                  <h3 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+                  <div class="desc">{{ content.body }}</div>
+              </div>
+          </div>  
+          </div>   
+       </div>
+       <div class="backend">
+          <div class="content-be">
+            <div class="service-block-content">
+              <div class="service-content">
+                <div class="service-images lightGallery">{{ content.field_service_images }}</div>
+                <h3 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+                <div class="readmore"><a class="btn-inline" href="{{ url }}">{{'Read more'|t}}</a></div>
+              </div>  
+            </div>    
+          </div>
+       </div>
+    </div>
+  </div> 
+
+{% elseif view_mode == "teaser_2" %}
+
+  <div class="service-block-2 grid">      
+    <div class="service-content">
+      <div class="content-inner">
+        <div class="content-top">
+          {% if content.field_service_icon %}
+            <div class="service-icon">{{ content.field_service_icon }}</div>
+          {% endif %}  
+          <h3 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+        </div> 
+        <div class="service-images lightGallery">{{ content.field_service_images }}</div>
+      </div>    
+    </div>
+  </div>
+
+{% elseif view_mode == "teaser_3" %}
+
+  <div class="service-block-3 grid">  
+    <div class="row">    
+      <div class="service-images lightGallery col-xl-6 d-xl-block d-lg-none d-md-none d-sm-none d-xs-none">{{ content.field_service_images }}</div>
+      <div class="service-content col-xl-6 col-lg-12 col-md-12 col-sm-12">
+        <div class="content-inner">
+          {% if content.field_service_icon %}
+            <div class="service-icon">{{ content.field_service_icon }}</div>
+          {% endif %}  
+          <h3 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+          <div class="desc">{{ content.body }}</div>
+          <div class="readmore"><a href="{{ url }}">{{'Read more'|t}}</a></div>
+        </div>  
+      </div>
+    </div>  
+  </div>
+
+{% else %}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="service-block-singe">
+    <div class="service-images-inner">
+      {{ content.field_service_images }}
+      {% if node.field_service_icon.value %}
+          <div class="service-icon"><span class="icon">{{ content.field_service_icon }}</span></div>
+        {% endif %}
+    </div>
+    <div class="post-content">
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
+      {{ title_suffix }}      
+
+      <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content|without('field_service_images', 'field_service_icon', 'comment') }}
+      </div>
+      <div id="node-single-comment">
+        <div id="comments">
+          {{ content.comment }}
+        </div>  
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}

@@ -1,0 +1,44 @@
+.gsc-progress-box{
+   border: 1px solid $border-color;
+   padding: 75px 60px 60px;
+   position: relative;
+   text-align: center;
+   @include media-breakpoint-down(md){
+      padding: 35px 30px 30px; 
+   }
+   .icon-box{
+      @include size(40px, 40px);
+      background: $theme_color;
+      @include border-radius(50%);
+      line-height: 40px;
+      text-align: center;
+      color: $theme-color-second;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      margin-left: -20px;
+      z-index: 11;
+   } 
+   .title{
+      font-size: 20px;
+      margin: 35px 0;
+   }
+   .heading-box{
+      line-height: 1;
+      .step-number{
+         font-size: 90px;
+         color: $theme-color-second;
+         letter-spacing: -2px;
+         &.number-01, &.number-1{
+            right: -10px;
+            position: relative;
+         }
+      }
+      .step-text{
+         font-size: 18px;
+         color: $theme_color;
+         text-transform: uppercase;
+         letter-spacing: 3px;
+      }
+   }
+} 

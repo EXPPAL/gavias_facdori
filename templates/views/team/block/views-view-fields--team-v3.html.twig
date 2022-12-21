@@ -1,0 +1,21 @@
+<article class="team-node-v3">      
+   <div class="team-content">
+      <div class="team-image image text-center">{{ fields.field_team_image.content }}</div> 
+      <div class="team-name">{{ fields.field_team_name.content|striptags|trim }}</div>
+      <div class="team-position text-center">{{ fields.field_team_position.content }}</div> 
+      <div class="team-socials">
+         {% if fields.field_team_facebook.content|striptags|trim %}
+            <a href="{{ fields.field_team_facebook.content|striptags|trim }}"><i class="fab fa-facebook"></i></a>
+         {% endif %} 
+         {% if fields.field_team_google.content|striptags|trim %}
+            <a href="{{ fields.field_team_google.content|striptags|trim }}"><i class="fab fa-google-plus"></i></a>
+         {% endif %} 
+         {% if fields.field_team_linkedin.content|striptags|trim %}
+            <a href="{{ fields.field_team_linkedin.content|striptags|trim }}"><i class="fab fa-linkedin"></i></a>
+         {% endif %} 
+         {% if fields.field_team_twitter.content|striptags|trim %}
+            <a href="{{ fields.field_team_twitter.content|striptags|trim }}s"><i class="fab fa-twitter"></i></a>
+         {% endif %}  
+      </div>
+   </div>
+</article>

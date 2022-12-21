@@ -1,0 +1,45 @@
+.gsc-map{
+  position: relative;
+  .content-inner{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9;
+    max-width: 400px;
+    padding: 20px;
+    background: $white;
+    @include border-radius(6px);
+    border: 1px solid $border-color;
+    @media(max-width: 600px){
+      position: static;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .info{
+    margin-bottom: 10px;
+    padding-left: 28px;
+    position: relative;
+    span.icon{
+      font-size: 18px;
+      top: 5px;
+      left: 0;
+      position: absolute;
+      z-index: 1;
+      color: $black;
+    }
+  }
+  .phone{
+    color: $theme-color;
+  }
+  .social-inline{
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+    > a{
+      margin: 0 10px 0 0;
+      font-size: 16px;
+    }
+  } 
+}

@@ -1,0 +1,44 @@
+name: Gavias Facdori
+type: theme
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+package: gaviasthemes
+base theme: false
+libraries:
+  - gavias_facdori/global-styling
+  - core/jquery
+
+libraries-override:
+  views_infinite_scroll/views-infinite-scroll: gavias_facdori/views-infinite-scroll
+
+regions:
+  offcanvas: 'After Offcanvas'
+  topbar: 'Topbar Right'
+  topbar_2: 'Topbar Left'
+  quick_side: 'Quick Side'
+  search: 'Search'
+  branding: 'Branding'
+  header_right: 'Header Right'
+  breadcrumbs: 'Breadcrumbs'
+  help: 'Help'
+  main_menu: 'Main menu'
+  slideshow_content: 'Slideshow'
+  before_content: 'Before Content'
+  content_top: 'Content Top'
+  content: 'Main content'
+  content_bottom: 'Content Bottom'
+  sidebar_left: 'Sidebar Left'
+  sidebar_right: 'Sidebar Right'
+  after_content: 'After Content'
+  highlighted: 'Highlighted'
+  before_footer: 'Before Footer'
+  footer_first: 'Footer Fisrt'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_four: 'Footer Four'
+  after_footer: 'After Footer'
+  copyright: 'Copyright'
+  other: 'Other'
+
+version: '2.0.2'
+core_version_requirement: ^8.8 || ^9
+project: 'drupal'

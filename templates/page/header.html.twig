@@ -1,0 +1,94 @@
+<header id="header" class="header-default">
+  
+  {% if page.topbar %}
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container">
+          <div class="row">
+            
+            {% if page.topbar_2 %}
+              <div class="col-lg-6 col-sm-12 topbar-left">
+                <div class="topbar-content">{{ page.topbar_2 }}</div>
+              </div>  
+            {% endif %}
+
+            <div class="col-lg-6 col-sm-12 topbar-right">
+              <div class="topbar-content-inner clearfix"> 
+                <div class="topbar-content">{{ page.topbar }}</div>
+              </div>  
+            </div>
+
+          </div>   
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% set class_sticky = '' %}
+  {% if sticky_menu == 1 %}
+    {% set class_sticky = 'gv-sticky-menu' %}
+  {% endif %}  
+
+   <div class="header-main {{ class_sticky }}">
+      <div class="container header-content-layout">
+         <div class="header-main-inner p-relative">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12 content-inner">
+                <div class="branding">
+                  {% if page.branding %}
+                    {{ page.branding }}
+                  {% endif %}
+                </div>
+                
+                <div class="header-inner clearfix ">
+                  <div class="main-menu">
+                    <div class="area-main-menu">
+                      <div class="area-inner">
+                        <div class="gva-offcanvas-mobile">
+                          <div class="close-offcanvas hidden"><i class="fa fa-times"></i></div>
+                          <div class="main-menu-inner">
+                            {% if page.main_menu %}
+                              {{ page.main_menu }}
+                            {% endif %}
+                          </div>
+
+                          {% if page.offcanvas %}
+                            <div class="after-offcanvas hidden">
+                              {{ page.offcanvas }}
+                            </div>
+                          {% endif %}
+                        </div>
+                        
+                        <div id="menu-bar" class="menu-bar menu-bar-mobile d-lg-none d-xl-none">
+                          <span class="one"></span>
+                          <span class="two"></span>
+                          <span class="three"></span>
+                        </div>
+
+                        {% if page.search %}
+                          <div class="gva-search-region search-region">
+                            <span class="icon"><i class="gv-icon-52"></i></span>
+                            <div class="search-content">  
+                              {{ page.search }}
+                            </div>  
+                          </div>
+                        {% endif %}
+                        {% if page.quick_side %}
+                          <div class="quick-side-icon d-none d-lg-block d-xl-block">
+                            <div class="icon"><a href="#"><span class="qicon gv-icon-103"></span></a></div>
+                          </div>
+                        {% endif %}  
+
+                      </div>
+                    </div>
+                  </div>  
+                </div> 
+              </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+</header>
+

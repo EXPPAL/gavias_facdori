@@ -1,0 +1,128 @@
+.gsc-video-box{
+    position: relative;
+    margin: 0 auto;
+    &.style-1{
+      margin-bottom: 10px;
+      .image{
+        .popup-video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 11; 
+          @include size(100%, 100%); 
+          text-transform: capitalize;
+          .icon{
+            position: absolute;
+            @include size(40px, 40px);
+            @include border-radius(50%);
+            @include transition(all 0.35s);
+            @include opacity(1);
+            top: 50%;
+            left: 50%;
+            margin-left: -20px;
+            margin-top: -20px;
+            z-index: 12;
+            background: $theme-color;
+            color: $theme-color-second;
+            display: inline-block;
+            text-align: center;
+            line-height: 43px;
+          }
+        }
+      }
+      .video-content-left{
+        position: relative;
+        width: 200px;
+        float: left;
+        @include media-breakpoint-down(md){
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+      .video-content-right{
+        padding-left: 220px;
+        font-size: 18px;
+        color: $theme-color-second;
+        padding-top: 15px;
+        @include media-breakpoint-down(md){
+          width: 100%;
+          margin-bottom: 15px; 
+          padding-left: 0;  
+        }
+      }
+    }
+    &.style-2{
+      margin-bottom: 30px;
+      .image{
+        .popup-video{
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 19; 
+          @include size(100%, 100%); 
+          text-transform: capitalize;
+          .icon{
+            position: absolute;
+            @include size(50px, 50px);
+            @include border-radius(50%);
+            @include transition(all 0.35s);
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            z-index: 19;
+            background: $theme-color;
+            color: $white;
+            display: inline-block;
+            text-align: center;
+            line-height: 50px;
+          }
+        }
+      }
+      .video-content{
+        .link-video{
+          font-size: 12px;
+          font-weight: 400;
+          margin: 20px 0 0 35px;
+          position: relative;
+          float: left;
+          text-transform: capitalize;
+          &:after {
+            content: "";
+            position: absolute;
+            @include size(30px, 1px);
+            background-color: $black;
+            top: 14px;
+            left: -35px;
+          }
+          strong{
+            font-size: 14px;
+          }
+        }
+        .button-review {
+          float: right;
+          margin-top: 20px;
+          a{
+            @include transition(all 0.35s);
+            color: $black;
+            border: 1px solid $black;
+            padding: 4px 15px;
+            @include border-radius(30px);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+            &:hover{
+              color: $white;
+              background: $theme-color;
+              border-color: $theme-color;
+            }
+          }
+        }
+      }
+      .video-inner{
+        @include box-shadow(0px 0px 10px 3px rgba(0, 0, 0, 0.1));
+        position: relative;
+      }
+   }
+}

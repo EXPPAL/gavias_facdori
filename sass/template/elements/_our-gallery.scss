@@ -1,0 +1,53 @@
+.gsc-our-gallery{
+   margin-bottom: 30px;
+  .item{
+    .box-content{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 35px 30px;
+      background: $theme-color;
+      z-index: 9;
+      max-width: 55%;
+      .title{
+        color: $white;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 32px;
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        @include media-breakpoint-down(xs){
+         font-size: 18px;
+         line-height: 24px;
+        }
+        &:after{
+          content: '';
+          @include size(50px, 2px);
+          background: $theme-color-second;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+        }
+      }
+      .desc{
+        color: $white;
+        @include media-breakpoint-down(xs){
+          display: none;
+        }
+      }
+    } 
+  }
+  .owl-nav{
+    .owl-prev{
+      bottom: 15px;
+      left: 15px;
+    }
+    .owl-next{
+      bottom: 15px;
+      left: 60px;
+      right: auto;
+    }
+  }
+}

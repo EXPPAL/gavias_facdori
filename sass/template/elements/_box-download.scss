@@ -1,0 +1,46 @@
+.gsc-box-download{
+  background: $theme-color;
+  color: $white;
+  padding: 30px;
+  margin: 20px 0;
+  .info{
+    .title{
+      font-size: 18px;
+    }
+    .desc{
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+  .box-files{
+    a{
+      display: inline-block;
+      margin-bottom: 10px;
+      text-align: center;
+      color: $black;
+      font-weight: 700;
+      font-size: 13px;
+      background: $white;
+      padding: 15px;
+      width: 100%;
+    }
+  }
+  &.horizontal{
+    @include clearfix();
+    .info{
+      width: 70%;
+      float: left;
+      @include media-breakpoint-down(xs){
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+    .box-files{
+      width: 30%;
+      float: left;
+      @include media-breakpoint-down(xs){
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,394 @@
+.area-main-menu{
+	.menu-toggle{
+		display: none;
+	}
+}
+@include media-breakpoint-up(lg){
+	//colors
+	.navigation {
+		position: relative;
+		clear: both;
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.gva_menu {
+			float: left;
+			position: relative; 
+			li {
+				position: relative;
+				a{
+					text-align: left!important;
+					.icaret{
+						margin-left: 4px;
+						border: none!important;
+						font-size: 9px;
+					}
+				}
+			}
+			> li {
+				display: inline-block;
+				 &.gva-mega-menu{
+				 	position: static!important;
+				 	> .sub-menu{
+				 		width: 100%;
+				 	}
+				 }
+				&:hover {
+					@include media-breakpoint-up(sm){ 
+						> ul.sub-menu, div.sub-menu {
+							display: block;
+							visibility: visible;
+							@include opacity(1);
+							top: 99%;
+							-webkit-transform: rotateX(0);
+		              -moz-transform: rotateX(0);
+		              -ms-transform: rotateX(0);
+		              -o-transform: rotateX(0);
+		              transform: rotateX(0);
+		              	> li{
+								opacity: 1;
+							   visibility: visible; 
+							   transform: translateY(0);
+							}
+						}
+						> a {
+							color: $theme-color;
+						}
+					}	
+				}
+				> a {
+					display: block;
+					position: relative;
+					font-size: 14px; 
+					font-weight: 500;
+					padding: 40px 20px;
+					@include transition(all 0.35s);   
+					text-align: center; 
+					text-transform: uppercase;
+					color: $theme-color-second;
+					letter-spacing: 0.6px;
+					@include media-breakpoint-down(lg){
+						padding-left: 15px;
+						padding-right: 15px;
+					}
+					@include media-breakpoint-down(md){
+						padding-left: 10px;
+						padding-right: 10px;
+					}
+					@include media-breakpoint-down(sm){
+						padding-left: 8px;
+						padding-right: 8px;
+					}
+					&:hover, &:after, &:active{
+						color: $theme-color;
+						&:before{
+							@include opacity(1);
+						}
+					}
+					&.is-active{
+						color: $theme-color;	
+						&:before{
+							@include opacity(1);
+						}
+					}
+					> span{
+						position: relative;
+						padding-bottom: 6px;
+						.icaret{
+							
+						}
+					}
+				} 
+				&.menu-item--active-trail > a{
+					color: $theme-color!important;
+				}
+				&.megamenu{
+					&.menu-columns-2{
+						> ul.sub-menu{
+							> li{
+								width: 50%;
+								float: left;
+							}
+						}
+					}
+					&.menu-columns-3{
+						> ul.sub-menu{
+							> li{
+								width: 33.33%;
+								float: left;
+							}
+						}
+					}
+					&.menu-columns-4{
+						> ul.sub-menu{
+							> li{
+								width: 25%;
+								float: left;
+							}
+						}
+					}
+					&.menu-columns-5{
+						> ul.sub-menu{
+							> li{
+								width: 20%;
+								float: left;
+							}
+						}
+					}
+				} 
+				&.menu-list{
+					ul.sub-menu{
+						min-width: 250px;
+					 	> li{
+							border-bottom: 1px solid $border-color;
+							> a{
+								padding: 10px 15px;
+								text-transform: uppercase;
+							}
+						}	
+					}
+				}
+			}
+			.megamenu, .gva-mega-menu {
+				position: static;
+				> ul > li{
+					transition: none;
+				   opacity: 1;
+				   visibility: visible;
+				   transform: none;
+				   transition-delay: 0s;
+				}
+				> .sub-menu {
+					width: 100%;
+					padding: 20px;
+					> li {
+						border: none;
+						position: static;
+						padding: 0 15px;
+						> ul.sub-menu {
+							@include media-breakpoint-up(md){
+								display: block!important;
+								visibility: visible;
+								-webkit-transform: rotateX(0);
+			               -moz-transform: rotateX(0);
+			               -ms-transform: rotateX(0);
+			               -o-transform: rotateX(0);
+			               transform: rotateX(0);
+							}
+							position: static;
+							border-width: 0;
+							padding: 0;
+							min-width: inherit;
+							width: 100%;
+							background-color: transparent;
+							@include opacity(1);
+							@include box-shadow(none);
+							li{
+							 	padding: 10px 0 0;
+							 	margin-bottom: 0;
+							 	border: none;
+							}
+						}
+						> a {
+							display: block;
+							font-size: 14px;
+							color: $white;
+							font-weight: 500;
+							text-transform: uppercase;
+							padding: 0 0 5px;
+							margin-bottom: 5px;
+							border-bottom: 1px solid rgba(255, 255, 255, 0.1)!important;
+							position: relative;
+							&:after{
+								display: none;
+							}
+						}
+					}
+				}
+				&:hover{
+					ul.sub-menu{
+						> li{
+							opacity: 1;
+						   visibility: visible; 
+						   transform: translateY(0);
+						}
+					}
+				}
+			}
+			.sub-menu {
+				top: 106%;
+				position: absolute;
+				min-width: 280px;
+				background-color: $theme-color-second;
+				z-index: 999;
+				left: 0;
+				padding: 15px 20px 10px;
+				visibility: hidden;
+				@include opacity(0);
+				@include transition(all 0.2s ease-out);
+				@include box-shadow(0px 4px 4px 1px rgba(0, 0, 0, 0.2));
+				-webkit-transform: rotateX(-90deg);
+    			-moz-transform: rotateX(-90deg);
+	          -ms-transform: rotateX(-90deg);
+	          -o-transform: rotateX(-90deg);
+	          transform: rotateX(-90deg);
+	          -webkit-transform-origin: 0 0;
+	          -moz-transform-origin: 0 0;
+	          -ms-transform-origin: 0 0;
+	          -o-transform-origin: 0 0;
+	          transform-origin: 0 0;
+				> li {
+					padding: 10px 0; 
+					transition: all .2s cubic-bezier(.4,.28,.31,1.28) 0s;
+				   opacity: 0;
+				   visibility: hidden;
+				   transform: translateY(5px);
+				   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+					> a {
+						display: block;
+						line-height: 26px;
+						text-decoration: none;
+						font-size: 14px;
+						font-weight: 400;
+						text-transform: capitalize;
+						@include transition(all 0.2s ease-out);
+						position: relative;
+						color: $white;
+						&:hover, &:focus, &:active {
+							color: $theme-color;
+						}
+					}
+					&:nth-child(2n+1){
+						transition-delay: 0.1s;
+					}
+					&:nth-child(2n+2){
+						transition-delay: 0.15s;
+					}
+					&:nth-child(2n+3){
+						transition-delay: 0.2s;
+					}
+					&:nth-child(2n+4){
+						transition-delay: 0.25s;
+					}
+					&:nth-child(2n+5){
+						transition-delay: 0.3s;
+					}
+					&:nth-child(2n+6){
+						transition-delay: 0.35s;
+					}
+					&:nth-child(2n+7){
+						transition-delay: 0.4s;
+					}
+					&:nth-child(2n+8){
+						transition-delay: 0.45s;
+					}
+					&:nth-child(2n+9){
+						transition-delay: 0.5s;
+					}
+					&:nth-child(2n+10){
+						transition-delay: 0.55s;
+					}
+					&:nth-child(2n+11){
+						transition-delay: 0.6s;
+					}
+					&:nth-child(2n+12){
+						transition-delay: 0.65s;
+					}
+					&:nth-child(2n+13){
+						transition-delay: 0.7s;
+					}
+					&:nth-child(2n+14){
+						transition-delay: 0.75s;
+					}
+					&:nth-child(2n+15){
+						transition-delay: 0.8s;
+					}
+					&:last-child{
+						border-bottom: 0;
+					}
+					ul {
+						position: absolute;
+						top: 0;
+						right: 0;
+						min-width: 250px;
+						visibility: hidden;
+						@include opacity(0);
+						display: none;
+						z-index: 11;
+					}
+					&:hover > ul {  
+						@include media-breakpoint-up(md){
+							visibility: visible;
+							@include opacity(1);
+							display: block;
+							left: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}	
+
+body.header-absolute{
+	.navigation {
+		ul.gva_menu{
+	   	> li {
+	   		> a{
+	   			color: $white!important;
+	   		}
+	   	}
+	   }	
+	}
+}
+
+//Widget inner megamenu
+.gva-mega-menu{
+	.block-blocktabs{
+    position: relative;
+    .ui-widget{
+      font-size: $font-size-base;
+    }
+    .ui-tabs-nav{
+      padding: 0;
+      position: static;
+      width: 15%;
+      float: left;
+      > li{
+        background: none;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        width: 100%;
+        float: none;
+        clear: both;
+      	padding-right: 20px;
+        > a{
+         font-size: 12px;
+         text-transform: uppercase;
+        	border-bottom: 1px solid $border-color;
+         font-weight: 700;
+         padding-bottom: 10px;
+        	margin-bottom: 10px;
+        	width: 100%;
+        }
+        &:last-child{
+          > a{
+            padding-right: 0;
+          }
+        }
+        &.ui-tabs-active{
+           > a{
+            color: $theme-color;
+           }
+        }
+      }
+    }
+    .ui-tabs-panel{
+    	float: left;
+    	width: 85%;
+    }
+  }
+}

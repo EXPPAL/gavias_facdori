@@ -1,0 +1,21 @@
+.gsc-chart{
+   text-align: center;
+   .content{
+      text-align: center;
+      > div{
+         display: block;
+      }
+      .icon{
+         font-size: 25px;
+         margin-top: 5px;
+      }
+      .title{
+         font-weight: 700;    
+         position: relative;
+         font-size: 14px;
+         color: $black;
+         margin: 20px 0 15px;
+         text-transform: uppercase;
+      }
+   }
+}

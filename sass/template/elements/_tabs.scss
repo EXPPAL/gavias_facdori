@@ -1,0 +1,64 @@
+.gsc-tabs{
+  .tabs_wrapper{
+    &.tabs_horizontal{
+      .nav-tabs{
+        padding: 15px;
+        background: $white;
+        border: 1px solid $border-color;
+        border-bottom: 0;
+        > li{
+          a{
+            display: block;
+          }
+        }
+      }
+      .tab-content{
+        border: 1px solid $border-color;
+        .tab-pane{
+          background: $white;
+          padding: 30px;
+        } 
+      }
+    }
+    &.tabs_vertical{
+      display: flex;
+      flex-wrap: wrap;
+      .nav-tabs{
+        width: 25%;
+        float: left;
+        flex: 0 0 25%;
+        max-width: 50%;
+        background: $white;
+        border: 1px solid $border-color;
+        border-right: 0;
+        > li{
+          display: block;
+          border-bottom: 1px solid $border-color;
+          width: 100%;
+          padding-top: 15px;
+          a{
+            width: 100%;
+            display: block;
+          }
+          &:last-child{
+            margin-bottom: 0;
+            border: none;
+          }
+        }
+      }
+      .tab-content{
+        width: 75%;
+        float: left;
+        width: 75%;
+        float: left;
+        flex: 0 0 75%;
+        max-width: 75%;
+        .tab-pane{
+          background: $white;
+          padding: 30px;
+          border: 1px solid $border-color;
+        }  
+      }
+    }
+  }  
+}

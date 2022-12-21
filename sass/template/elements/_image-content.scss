@@ -1,0 +1,130 @@
+.gsc-image-content{
+  &.skin-v1{
+    margin-bottom: 30px;
+    padding: 10px;
+    @include border-radius(0 150px 150px 0);
+    @include media-breakpoint-down(sm){
+      @include border-radius(0);
+      padding: 30px;
+    }
+    background: $white;
+    .content-left{
+      padding: 35px 225px 10px 35px;
+      @include media-breakpoint-down(md){
+        padding: 30px 225px 10px 30px;
+      }
+      @include media-breakpoint-down(sm){
+        width: 100%;
+        padding: 30px 30px 0; 
+      }
+      .title{
+        font-size: 20px;
+        margin-bottom: 20px;  
+        @include media-breakpoint-down(sm){
+          margin: 15px 0;
+          float: left;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .content-right{
+      width: 200px;
+      float: right;
+      text-align: center;
+      @include media-breakpoint-down(md){
+        width: 170px;
+      }
+      @include media-breakpoint-down(sm){
+        width: 100%;
+        text-align: center;
+      }
+      .image{
+        @include border-radius(50%);
+        overflow: hidden;
+        @include media-breakpoint-down(sm){
+          @include border-radius(0);
+        }
+      }      
+    }
+  }
+  &.skin-v2{
+    position: relative;
+    margin-bottom: 20px;
+    @include border-radius(6px);
+    margin-right: auto;
+    margin-left: auto;
+    .image{
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      img{
+        @include transition(all 3s);
+      }
+    }  
+    .box-content{
+      background: $white;
+      padding: 30px;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      @include transition(all 0.35s);
+      position: relative;
+      background: #F3F3F3;
+      margin-top: 10px;
+      .content-inner{
+        max-width: 490px;
+        margin: 0 auto;
+      }
+      .title{
+        margin: 0 0 20px;
+        font-size: 20px;
+      }
+      .desc{
+        margin-top: 5px;
+      }
+    }
+  }
+  &.skin-v3{
+    max-width: 550px;
+    margin: 0 auto 20px;
+    .image{
+      position: relative;
+      margin-bottom: 20px;
+      text-align: center;
+      &:after{
+        content: '';
+        background: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        @include size(100%, 100%);
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @include transition(all 0.35s);
+      }
+      .title{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding: 10px 15px;
+        text-align: center;
+        z-index: 9;
+        margin-top: -25px;
+        color: $white;
+        font-size: 18px;
+        a{
+          color: $white;
+          text-shadow: 0 0 5px #000;
+        }
+      }
+      &:hover{
+        &:after{
+          background: $theme-color;
+        }
+      }
+    }
+    .read-more{
+      margin-top: 10px;  
+    }
+  }
+}

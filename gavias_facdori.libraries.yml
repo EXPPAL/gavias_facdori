@@ -1,0 +1,178 @@
+global-styling:
+  version: VERSION
+  header: true
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Roboto:300,400,500,700,900: { type: external }
+      css/sliderlayer.css: {}
+      css/font-awesome/css/all.min.css: {}
+      css/icon.css: {}
+      css/animate.css: {}
+      vendor/owl-carousel/assets/owl.carousel.min.css: {}
+      vendor/owl-carousel/assets/owl.theme.default.min.css: {}
+      vendor/prettyphoto/css/prettyPhoto.css: {}
+      vendor/ytplayer/css/jquery.mb.YTPlayer.min.css: {}
+      vendor/magnific/magnific-popup.css: {}
+      vendor/slick/slick.css: {}
+  js:
+    vendor/jquery-migrate.min.js: {}
+    js/bootstrap.js: {}
+    js/imagesloader.min.js: {}
+    vendor/jquery.easing.js: {}
+    vendor/jquery.appear.js: {}
+    vendor/jquery.easypiechart.min.js: {}
+    vendor/owl-carousel/owl.carousel.js: {}
+    vendor/waypoint.js: {}
+    vendor/count-to.js: {}
+    vendor/masonry.pkgd.min.js: {}
+    vendor/isotope.pkgd.min.js: {}
+    vendor/aos.js: {}
+    vendor/prettyphoto/js/jquery.prettyPhoto.js: {}
+    vendor/ytplayer/js/jquery.mb.YTPlayer.min.js: {}
+    vendor/jquery.typer/src/jquery.typer.js: {}
+    vendor/magnific/jquery.magnific-popup.min.js: {}
+    vendor/quotes_rotator/js/modernizr.custom.js: {}
+    vendor/quotes_rotator/js/jquery.cbpQTRotator.min.js: {}
+    vendor/jquery.nicescroll.min.js: {}
+    vendor/slick/slick.min.js: {}
+    js/main.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+gavias_facdori.skin.default:
+  version: VERSION
+  css:
+    theme: 
+      css/bootstrap.css: {}
+      css/template.css: {}
+
+gavias_facdori.skin.blue:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/blue/bootstrap.css: {}
+      css/skins/blue/template.css: {}
+
+gavias_facdori.skin.brown:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/brown/bootstrap.css: {}
+      css/skins/brown/template.css: {}
+
+gavias_facdori.skin.green:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/green/bootstrap.css: {}
+      css/skins/green/template.css: {}
+
+gavias_facdori.skin.lilac:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/lilac/bootstrap.css: {}
+      css/skins/lilac/template.css: {}
+
+gavias_facdori.skin.lime_green:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/lime_green/bootstrap.css: {}
+      css/skins/lime_green/template.css: {}
+
+gavias_facdori.skin.orange:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/orange/bootstrap.css: {}
+      css/skins/orange/template.css: {}
+
+gavias_facdori.skin.pink:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/pink/bootstrap.css: {}
+      css/skins/pink/template.css: {}
+
+gavias_facdori.skin.purple:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/purple/bootstrap.css: {}
+      css/skins/purple/template.css: {}
+
+gavias_facdori.skin.red:
+  version: VERSION
+  css:
+    theme:  
+      css/skins/red/bootstrap.css: {}
+      css/skins/red/template.css: {}
+
+gavias_facdori.skin.turquoise:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/turquoise/bootstrap.css: {}
+      css/skins/turquoise/template.css: {}
+
+gavias_facdori.skin.turquoise2:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/turquoise2/bootstrap.css: {}
+      css/skins/turquoise2/template.css: {}
+
+gavias_facdori.skin.violet_red:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/violet_red/bootstrap.css: {}
+      css/skins/violet_red/template.css: {}
+
+gavias_facdori.skin.violet_red2:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/violet_red2/bootstrap.css: {}
+      css/skins/violet_red2/template.css: {}
+
+gavias_facdori.skin.yellow:
+  version: VERSION
+  css:
+    theme: 
+      css/skins/yellow/bootstrap.css: {}
+      css/skins/yellow/template.css: {}
+
+
+gavias-facdori-admin:
+  version: VERSION
+  css: 
+    theme: 
+      css/theme-settings.css: {}
+      vendor/colorpicker/css/colorpicker.css: {}
+      vendor/codemirror/lib/codemirror.css: {}
+      vendor/codemirror/addon/hint/show-hint.css: {}
+  js:
+      vendor/jquery-migrate.min.js: {}
+      vendor/colorpicker/js/colorpicker.js: {}
+      vendor/codemirror/lib/codemirror.js: {cope: footer}
+      vendor/codemirror/mode/css/css.js: {cope: footer}
+      js/customize.js: {}
+
+maintenance_page:
+  version: VERSION
+  css:
+    theme:
+      css/maintenance-page.css: {}
+
+views-infinite-scroll:
+  version: VERSION
+  js:
+    js/override/infinite-scroll.js : {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.debounce

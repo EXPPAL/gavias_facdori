@@ -1,0 +1,49 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class
+  ]
+%}
+{% if teaser == true %} 
+<div{{ attributes.addClass(classes)|without('about') }}>
+  <div class="header-title">
+    {{ title_prefix }}
+      <h2{{ title_attributes.addClass('node__title') }}>{{ label }}</h2>
+    {% set title_suffix = '' %}
+    {{ title_suffix }}
+    {% if display_submitted %}
+      <div class="node__meta">
+        {{ author_picture }}
+        <span{{ author_attributes }}>
+          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        </span>
+        {{ metadata }}
+      </div>
+    {% endif %}
+  </div>
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {{ content }}
+  </div>
+</div>
+<!-- End Display article for teaser page -->
+{% else %}
+<!-- Start Display article for detail page -->
+
+<div{{ attributes.addClass(classes)|without('about') }}>
+  <div class="header-title">
+  
+    <div class="container">
+      <h2 class="title"><span>{{ label }}</span></h2>
+    </div>
+  </div>
+  
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {{ content }}
+  </div>
+</div>
+
+{% endif %}

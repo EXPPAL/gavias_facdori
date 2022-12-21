@@ -1,0 +1,12 @@
+<div class="view-content-wrap">
+  <div class="uk-slideset-init nav-slideset-top" data-uk-slideset="{animation: 'scale',xlarge:3, large:3, medium:2, small:1}">
+    <div class="uk-slidenav-position uk-margin">
+      <ul class="uk-grid uk-slideset">
+        {% for row in rows %}
+          <li>{{ row.content|raw }}</li>
+        {% endfor %}
+      </ul>
+      <ul class="uk-slideset-nav uk-dotnav uk-flex-center"></ul>
+    </div>  
+  </div> 
+</div>

@@ -1,0 +1,178 @@
+.gsc-icon-box-color{
+   &.hidden-arrow{
+      &:after{
+         display: none!important;
+      }
+   }
+   .content-inner{
+      .box-title{
+         font-size: 18px;
+      }
+   }
+   &.icon-style-1{
+      .box-icon{
+         @include size(80px, 80px);
+         border: 1px solid $border-color;
+         @include border-radius(50%);
+         padding: 10px; 
+         margin-bottom: 15px;
+         display: inline-block;
+         .icon{ 
+            @include size(100%, 100%);
+            @include border-radius(50%);
+            text-align: center;
+            line-height: 60px;
+            color: $white;
+            background: $theme-color;
+            font-size: 22px;
+            @include box-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+         }
+      }
+   }
+   &.icon-style-2{
+      .box-icon{
+         margin-bottom: 15px;
+         .icon{ 
+            display: inline-block;
+            margin: 0 auto;
+            @include size(60px, 60px);
+            @include border-radius(50%);
+            text-align: center;
+            line-height: 60px;
+            color: $white;
+            background: $theme-color;
+            font-size: 22px;
+            @include box-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+         }
+      }
+   }
+
+   &.arrow-style-1{
+      &:after{
+         content: '';
+         background: url('#{$base-theme-image-path}/arrow-workflow-right.png') no-repeat center center $nocolor;
+         background-size: contain;
+         @include size(60px, 20px);
+         z-index: 1;
+         position: absolute;
+         top: 30px;
+         left: -45px;
+         display: none;
+         @include media-breakpoint-down(sm){
+            display: none!important;
+         }
+      }
+      &:before{
+         content: '';
+         background: url('#{$base-theme-image-path}/arrow-workflow.png') no-repeat center center $nocolor;
+         background-size: contain;
+         @include size(60px, 20px);
+         z-index: 1;
+         position: absolute;
+         top: 30px;
+         right: -45px;
+         display: none;
+         @include media-breakpoint-down(sm){
+            display: none!important;
+         }
+      }
+   }
+
+   &.arrow-style-2{
+      &:before{
+         content: '';
+         background: rgba(0, 0, 0, 0.2);
+         @include size(60px, 1px);
+         z-index: 1;
+         position: absolute;
+         top: 30px;
+         right: -15px;
+         display: none;
+         @include media-breakpoint-down(sm){
+            display: none!important;
+         }
+      }
+      &:after{
+         content: '';
+         background: rgba(0, 0, 0, 0.2);
+         @include size(60px, 1px);
+         z-index: 1;
+         position: absolute;
+         top: 30px;
+         left: -15px;
+         display: none;
+         @include media-breakpoint-down(sm){
+            display: none!important;
+         }
+      }
+   }
+   &.arrow-right{
+      &:before{
+         display: block;
+      }
+   }
+   &.arrow-left{
+      &:after{
+         display: block;
+      }
+   }
+   &.icon-image{
+      .box-icon{
+         width: 100%;
+         border: none;
+         background: none;
+         .icon{
+            background: none!important;
+            @include box-shadow(none);
+            height: auto;
+            width: auto;
+         }
+      }
+   }
+   &.style-1{
+      position: relative;
+      text-align: center;
+      .box-icon{
+         text-align: center;
+         .icon{
+            display: block;
+         }
+      }
+      .content-inner{
+         text-align: center;
+      }
+      .box-title{
+         margin-bottom: 10px;
+      }
+   }
+   &.style-2{
+      position: relative;
+      text-align: left;
+      margin-top: 30px;
+      max-width: 300px;
+      padding-left: 45px;
+      .box-icon{
+         text-align: left;
+      }
+      .content-inner{
+         text-align: left;
+      }
+   }
+   &.style-3{
+      position: relative;
+      text-align: right;
+      margin-top: 30px;
+      max-width: 300px;
+      float: right;
+      padding-right: 45px;
+      .box-icon{
+         text-align: right;
+      }
+      .content-inner{
+         text-align: right;
+      }
+      &.end{
+         margin-bottom: 0;
+      }
+   }
+}

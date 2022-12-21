@@ -1,0 +1,29 @@
+.nav-tabs, .topbar ul , ul.contact-info, ul.menu{
+   list-style: none!important;
+   padding-left: 0;
+}
+
+.site-branding-logo{
+  max-height: inherit;
+  img{
+    max-height: 80px;
+    width: auto;
+  }
+}
+
+header .site-branding-logo img.logo-site{display: block!important;}
+
+.page-user-login .help.show, .page-user-register .help.show, .page-user-pass .help.show{display: block!important;}
+
+@media(min-width: 992px){
+   .navigation .gva_menu .sub-menu > li:hover > ul{
+      -webkit-transform: rotateX(0);
+      transform: rotateX(0);
+   }
+   .navigation .gva_menu .sub-menu > li > ul li{opacity: 1;visibility: visible;}
+}
+
+.service-block-singe .service-icon img{
+  max-width: 30px;
+  margin-top: 6px;
+}

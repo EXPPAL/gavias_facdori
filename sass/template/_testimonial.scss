@@ -1,0 +1,291 @@
+.testimonial-node-1{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  background: $white;
+  .content-body{
+    position: relative;
+    padding: 65px 30px 50px;
+    margin-top: 40px;
+    .avatar{
+      margin-top: 5px;
+      max-width: 90px;
+      position: absolute;
+      top: -45px;
+      left: 50%;
+      margin-left: -45px;
+      z-index: 9;
+      img{
+        width: 100%!important;
+        height: auto;
+        @include border-radius(50%);
+      }
+      .quote-icon{
+        font-size: 40px;
+        @include size(40px, 40px);
+        background: $theme_color;
+        color: $theme-color-second;
+        text-align: center;
+        display: inline-block;
+        @include border-radius(50%);
+        line-height: 40px;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        right: -20px;
+        line-height: 58px;
+        font-style: italic;
+        padding-right: 12px;
+      }
+    }
+    .quote{
+      font-size: 16px;
+      line-height: 30px;
+      position: relative;
+      padding-top: 35px;
+      color: #7f8284;
+      text-align: center;
+      max-width: 230px;
+      margin: 0 auto;
+    }
+    .info{
+      margin-top: 10px;
+      text-align: center;
+      .name{
+        font-size: 20px;
+        font-weight: 700;
+        color: $theme-color-second;
+      }
+      .job{
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.testimonial-node-2{
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  .content-body{
+    position: relative;
+    padding: 30px;
+    .avatar{
+      margin-bottom: 45px;
+      max-width: 90px; 
+      position: relative;
+      display: inline-block;
+      img{
+        width: 100%!important;
+        height: auto;
+        @include border-radius(50%);
+      }
+      .quote-icon{
+        font-size: 40px;
+        @include size(40px, 40px);
+        background: $theme_color;
+        color: $theme-color-second;
+        text-align: center;
+        display: inline-block;
+        @include border-radius(50%);
+        line-height: 40px;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        right: -20px;
+        line-height: 58px;
+        font-style: italic;
+        padding-right: 12px;
+      }
+    }
+    .quote{
+      font-size: 26px;
+      line-height: 48px;
+      position: relative;
+      padding-bottom: 35px;
+      color: #26263e;
+      text-align: center;
+      font-weight: 300;
+    }
+    .info{
+      text-align: center;
+      .name{
+        font-size: 20px;
+        font-weight: 700;
+        color: $theme-color-second;
+      }
+      .job{
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+
+.testimonial-node-3{
+  background: none;
+  max-width: 620px;
+  float: left;
+  position: relative;
+  @include border-radius(6px);
+  border: 1px solid $border-color;
+  .testimonial-content{
+    padding: 20px;
+  }
+  .video{
+    margin-bottom: 20px;
+    .popup-video{
+      display: inline-block;
+      background: url('#{$base-theme-image-path}/icon-play-2.png') no-repeat left center $nocolor;
+      height: 55px;
+      padding-left: 75px;
+      line-height: 55px;
+      @include transition(all 0.35s);
+      &:hover, &:focus, &:active{
+        @include scale(0.9);
+      }
+    }
+  }
+  .quote{
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+    font-family: "Georgia";
+    color: #838383;
+    font-style: italic;
+  }
+  .title{
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 15px;
+    color: $black;
+  }
+  .job{
+    font-size: 13px;
+  }
+}
+
+.testimonial-node-v3{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px;
+  background: $theme-color-second;
+  @include clearfix();
+  @include media-breakpoint-down(lg){
+    padding: 30px;
+  }
+  .testimonial-content{
+    .testimonial-icon{
+      margin-bottom: 15px;
+      span{
+        @include size(40px, 40px);
+        color: $theme-color-second;
+        background: $theme_color;
+        @include border-radius(50%);
+        line-height: 56px;
+        display: inline-block;
+        font-size: 30px;
+        font-style: italic;
+        padding-left: 10px;
+      }
+    }
+    .quote{
+      font-size: 22px;
+      line-height: 42px;
+      position: relative;
+      padding-top: 10px;
+      color: $white;
+      @include media-breakpoint-down(sm){
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  }
+  .content-inner{
+    @include clearfix();
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 40px;
+    padding-top: 40px;
+    .left{
+      @include size(90px, 90px);
+      @include border-radius(50%);
+      float: left;
+      overflow: hidden;
+    }
+    .right{
+      padding-left: 110px;
+      padding-top: 20px;
+      .name{
+        color: $theme_color;
+        font-weight: 600;
+        font-size: 18px;
+        display: block;
+        line-height: 1.1;
+      }
+      .job{
+        color: #b1bec5;
+      }
+    }
+  }
+}
+
+
+.testimonial-grid{
+  .item-grid{
+    margin-bottom: 45px;
+    @include clearfix();
+    .testimonials-quote{
+      font-size: 16px;
+      color: $black;
+      padding: 30px;
+      border: 1px solid $border-color;
+      font-weight: 400;
+      font-style: italic;
+      font-family: "Georgia";
+    }
+    .testimonials-profile{
+      display: inline-block;
+      position: relative;
+      margin-left: 30px;
+      float: left;
+      padding-top: 20px;
+      &:after{
+        content: "";
+        position: absolute;
+        @include size(50px, 2px);
+        background: $theme-color;
+        top: -1px;
+        left: 0;
+        z-index: 1;
+      }
+      .right{
+        padding-left: 70px;
+        .name{
+          font-size: 16px;
+          font-weight: 700;
+          color: #000000;
+          margin: 0;
+          text-transform: uppercase;
+        }
+        .job{
+          font-size: 12px;
+          font-weight: 900;
+          color: $theme-color;
+          text-transform: uppercase;
+        }
+      }
+      .left{
+        display: inline-block;
+        float: left;
+        img{
+          @include border-radius(50%);
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

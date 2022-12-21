@@ -1,0 +1,14 @@
+<div class="gallery-popup">
+{% set i = 0 %}
+  {%- for item in items -%}
+    {% set i = i + 1 %}
+    {% if i == 1 %}
+      <a href="{{file_url(item.content['#item'].entity.uri.value)}}" class="image-popup" title="{{ item.content['#item'].title }}">
+        <i class="fa fa-expand"></i>
+      </a>
+      {{ item.content }}
+    {% else %}
+      <a href="{{file_url(item.content['#item'].entity.uri.value)}}" class="image-popup d-none" title="{{ item.content['#item'].title }}"></a>
+    {% endif %}
+  {%- endfor -%}
+</div>

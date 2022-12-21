@@ -1,0 +1,26 @@
+.gsc-instagram{
+  .title{
+    color: #242527;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 300;
+    a{
+      color: $theme-color;
+      border-bottom: 1px solid $theme-color;
+      &:hover, &:focus, &:active{
+        color: $black;
+      }
+    }
+  }
+  &.style-2{
+    .owl-carousel{
+      margin-left: 0!important;
+      margin-right: 0!important;
+      .owl-item > .item{
+        padding-left: 0!important;
+        padding-right: 0!important;
+      }
+    }
+  }
+}

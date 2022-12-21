@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="193px" viewBox="0 0 1440 193" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>bee_line</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="mocks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-dasharray="10,12,12,12">
+        <g id="Bee-Line" transform="translate(0.000000, -107.000000)" stroke="#9CABB5" stroke-width="3">
+            <g id="Group" transform="translate(-70.000000, 107.000000)">
+                <path d="M0.0582524272,124.14249 C-1.94174757,165.14249 47.5582524,186.14249 148.558252,187.14249 C300.058252,188.64249 389.558252,18.1424899 574.558252,18.1424899 C759.558252,18.1424899 798.558252,174.14249 996.058252,165.64249 C1193.55825,157.14249 1232.55825,1.64248991 1415.55825,7.14248991 C1537.55825,10.8091566 1632.22492,61.3091566 1699.55825,158.64249" id="Line-2"></path>
+            </g>
+        </g>
+    </g>
+</svg>

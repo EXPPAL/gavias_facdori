@@ -1,0 +1,148 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+<!-- Start Display article for teaser page -->
+
+{% if view_mode == 'teaser' %}
+
+  <div class="portfolio-v1">      
+    <div class="portfolio-content">
+      <div class="portfolio-images">
+        {{ content.field_portfolio_images }}
+        <a class="link" href="{{ url }}"><i class="fa fa-link"></i></a>
+      </div>
+      <div class="content-inner">
+        <div class="portfolio-information">
+          <div class="category">{{content.field_portfolio_tags}}</div>
+          <h2 class="title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+          <div class="portfolio-hover">
+            <div class="desc">{{ content.body }}</div>
+            <div class="action"><a class="btn-theme" href="{{ url }}">{{'Read More'|t}}</a></div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+{% elseif view_mode == 'teaser_2' %}
+  {% set body %}{{content.body}}{% endset %}
+
+  <div class="portfolio-v2">      
+    <div class="portfolio-content">
+      <div class="portfolio-height"></div>
+      <div class="content-inner">
+        <span class="node-index">0{{ gva_node_index }}</span>
+        <div class="portfolio-information">
+          <div class="category">{{content.field_portfolio_tags}}</div>
+          <h2 class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+          <div class="portfolio-hover">
+            <div class="desc">{{ content.body }}</div>
+            <div class="action"><a class="btn-theme" href="{{ url }}">{{'Read More'|t}}</a></div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+{% elseif view_mode == 'teaser_3' %}
+    {% set body %}{{content.body}}{% endset %}
+    <div class="portfolio-v3 portfolio-item">      
+      <div class="images">
+        {{ content.field_portfolio_images }}
+        <div class="read-more"><a class="link" href="{{ url }}"><span>{{ 'Read More'|t }}</span></a></div>
+      </div>
+      <div class="portfolio-content">
+        <div class="content-inner">
+          <div class="category">{{ content.field_portfolio_tags }}</div>
+          <div class="portfolio-content-inner">
+            <div class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></div>    
+            <div class="desc">{{ body|striptags }}</div>
+          </div>    
+        </div>
+      </div>
+    </div>
+
+{% elseif view_mode == 'teaser_4' %}
+    <div class="portfolio-v4">      
+    <div class="portfolio-content">
+      <div class="content-front"> 
+        <div class="portfolio-images">
+          {{ content.field_portfolio_images }}
+          <a class="link" href="{{ url }}"><i class="fa fa-link"></i></a>
+        </div>
+        <div class="action"><a class="btn-theme" href="{{ url }}">{{ label }}</a></div>
+      </div>
+      <div class="content-inner">
+        <div class="portfolio-information">
+          <div class="category">{{content.field_portfolio_tags}}</div>
+          <h2 class="title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+          <div class="desc">{{ content.body }}</div>
+          <div class="action"><a class="btn-theme" href="{{ url }}">{{'Read More'|t}}</a></div>
+        </div>    
+      </div>
+    </div>
+  </div>
+{% else %}
+
+<!-- Start Display article for detail page -->
+{% set xcol = "col-md-12 col-sm-12 col-xs-12"  %}
+{% if informations %}
+  {% set xcol = "col-md-6 col-sm-12 col-xs-12"  %}
+{% endif %} 
+
+<article{{ attributes.addClass(classes).addClass('node-detail') }}>
+  <div class="post-block portfolio-single">
+    
+    <div class="row">
+      <div class="{{xcol}}"> 
+        <div class="post-thumbnail">
+          {% if content.field_portfolio_images %}
+            {{ content.field_portfolio_images }} 
+          {% endif %}
+        </div>
+      </div>
+      {% if informations %}
+      <div class="{{xcol}}">
+        <div class="portfolio-informations">
+          {{ informations|raw }}
+        </div>
+      </div>  
+      {% endif %}
+    </div> 
+     
+    <div class="post-content">
+      
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
+      {{ title_suffix }}         
+      <div class="post-meta">
+        <span class="post-categories">{{ content.field_portfolio_tags }}</span><span class="line"></span><span class="post-created"> {{date }} </span>
+      </div>
+      
+      <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content|without('field_portfolio_images','field_portfolio_tags', 'field_portfolio_information', 'comment') }}
+      </div>
+
+      {% if content.comment %}
+        <div id="node-single-comment">
+          {{ content.comment }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}

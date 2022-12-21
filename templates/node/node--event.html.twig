@@ -1,0 +1,127 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{% set conBody  %}
+  {{ content.body }}
+{% endset %}
+
+<!-- Start Display article for teaser page -->
+{% if view_mode == 'teaser' %} 
+  <article{{ attributes.addClass(classes) }}>
+    <div class="event-block">
+      <div class="event-image text-center">
+        {{ content.field_event_image }}
+        <div class="date"> 
+          <span class="day">{{ node.field_event_start.value|date('j') }}</span><span class="month">{{ node.field_event_start.value|date('F') }}</span>
+        </div>
+      </div>
+      <div class="event-content">  
+        <div class="event-info">
+          <div class="title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></div>
+          <div class="event-meta">
+            <span class="event-time"> {{ node.field_event_time.value }} </span>&nbsp;-&nbsp;<span class="event-address"> {{ node.field_event_address.value }} </span> 
+          </div>
+          <div class="body">{{ conBody|striptags }}</div>
+        </div>
+      </div>  
+    </div>   
+  </article>  
+
+{% elseif view_mode == 'teaser_2' %}
+
+  <div class="event-block-2">
+    <div class="event-image text-center">
+      {{ content.field_event_image }} 
+      <div class="event-date">
+        <span class="date">{{ event_date.day }}</span>
+        <span class="month">{{ event_date.month }}</span>
+      </div>
+    </div>
+    <div class="content-inner clearfix">
+      <div class="event-content-inner">
+        <div class="event-content">
+          <h3{{ title_attributes.addClass('post-title') }}><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>    
+          <div class="event-meta">
+            <span class="event-time"> {{ node.field_event_time.value }} </span>&nbsp;&nbsp;-&nbsp;&nbsp;<span class="event-address"> {{ node.field_event_address.value }} </span> 
+          </div>
+          <div class="event-line"></div>  
+          <div class="event-description">{{ conBody|striptags }}</div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+{% else %}
+
+<article{{ attributes.addClass(classes.addClass('node-detail')) }}>
+  <div class="post-block event-full">
+    <div class="post-thumbnail">
+      {{ content.field_event_image }}
+      <div class="event-info clearfix">
+        <div class="date clearfix"><i class="fa fa-calendar"></i>{{ content.field_event_start }} <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i></span> {{ content.field_event_time }}</div>
+        <div class="address clearfix"><i class="fa fa-map-marker"></i>{{ content.field_event_address }}</div>
+      </div>
+    </div>
+    <div class="post-content">
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
+      {{ title_suffix }}        
+      
+      <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content|without('field_event_image', 'field_event_start', 'field_event_address', 'field_event_time','field_event_map', 'comment') }}
+      </div>
+      <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=true&key=AIzaSyDWg9eU2MO9E0PF1ZMw9sFVJoPVU4Z6s3o"></script>
+      <script type="text/javascript" src="{{theme_uri}}/vendor/gmap3.js"></script>
+      <script type="text/javascript" src="{{theme_uri}}/vendor/jquery.ui.map.min.js"></script>
+      <div class="map margin-top-30">
+        {% set link = node.field_event_map.value %}
+        <div id="map_canvas_event" class="map_canvas" style="width:100%; height:400px;"></div>
+          {% set style_map = '[{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}]' %}
+          <script type="text/javascript">
+            jQuery(document).ready(function($) {
+              var stmapdefault = '{{ link }}';
+              var marker = {position:stmapdefault}
+              var content = '{{node.title.value}}<br>{{node.field_event_address.value}}';
+              jQuery('#map_canvas_event').gmap({
+                'scrollwheel':false,
+                'zoom': 14,
+                'center': stmapdefault,
+                'mapTypeId':google.maps.MapTypeId.ROADMAP,
+                'styles': {{ style_map|raw }},
+                'callback': function() {
+                   var self = this;
+                   self.addMarker(marker).click(function(){
+                      if(content){
+                         self.openInfoWindow({'content': content}, self.instance.markers[0]);
+                      }                     
+                   });
+                },
+                panControl: true
+              });
+            });
+          </script>
+      </div>
+      
+      {% if content.comment %}
+        <div id="node-single-comment">
+          {{ content.comment }}
+        </div>
+      {% endif %} 
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}

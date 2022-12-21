@@ -1,0 +1,671 @@
+.portfolio-filter{
+  margin-bottom: 35px;
+  ul.nav-tabs{
+    padding: 5px 0;
+    border-bottom: none;
+    justify-content: center;
+    > li{
+      display: inline-block;
+      > a{
+        background: none;
+        font-weight: 700;
+        background: transparent;
+        color: $text-color;
+        margin-right: 10px;
+        padding: 6px 15px;
+        @include transition(all 0.35s);
+        text-transform: uppercase;
+        letter-spacing: 0;
+        position: relative;
+        border: 1px solid $border-color;
+        @include transition(all 0.35s);
+        font-size: 12px;
+        background: $white;
+        &:hover{
+          border-color: $theme-color;
+        }
+        &.active{
+          border-color: $theme-color;
+          background: $theme-color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.gva-portfolio-items{
+  float: left;
+  width: 100%;
+  .view-portfolio{
+    width: 100%;
+  }
+}
+
+.portfolio-v1{
+  position: relative;
+  max-width: 500px;
+  margin: 0 1px;
+  margin-bottom: 30px;
+  background: none;
+  .portfolio-content{
+    position: relative;
+    @include transition(box-shadow 0.3s ease);
+  } 
+  .portfolio-images{
+    position: relative;
+    text-align: center;
+    &:after{
+      content: '';
+      @include size(100%, 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      @include opacity(1);
+      background: rgba(0, 0, 0, 0.5);
+      @include transition(all 0.35s);
+    }
+    .image-popup{
+      @include opacity(0);
+      @include size(32px, 32px);
+      background: $white;
+      line-height: 32px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 99;
+      text-align: center;
+      @include transition(all 0.35s);
+      margin-top: 30px;
+      &:hover{
+        color: $white;
+        background: $theme-color;
+      }
+    }
+    .link{
+      @include opacity(0);
+      @include transition(all 0.45s);
+      @include size(32px, 32px);
+      background: $white;
+      line-height: 33px;
+      position: absolute;
+      top: 55px;
+      right: 15px;
+      z-index: 99;
+      text-align: center;
+      margin-top: 45px;
+      &:hover{
+        color: $white;
+        background: $theme-color;
+      }
+    }
+  }
+  .content-inner{
+    position: absolute;
+    @include size(100%, auto);
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    text-align: left;
+    @include transition(all 0.35s);
+    padding: 30px 50px 50px;
+    max-width: 360px;
+    @include media-breakpoint-down(md){
+      padding: 30px;
+    }
+    .title{  
+      @include transition(all 0.35s);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 44px;
+      text-transform: capitalize;
+      a{
+        display: block;
+        color: $white;
+        @include media-breakpoint-down(md){
+          font-size: 32px;
+          line-height: 38px;
+        }
+        &:hover, &:focus, &:active{
+          text-decoration: underline;
+        }
+      }
+    }
+    .category{
+      @include transition(all 0.45s);
+      margin-bottom: 5px;
+      a{
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        &:hover, &:focus, &:active{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .portfolio-hover{
+    overflow: hidden;
+    height: 0;
+    transition: all 0.35s;
+    .desc{
+      font-size: 16px;
+      color: $white;
+      margin: 20px 0 25px;
+      overflow: hidden;
+      height: 65px;
+      line-height: 30px;
+    }
+  }
+  &:hover, &:active, &:focus{
+    .portfolio-images{
+      .image-popup{
+        @include opacity(1);
+        margin-top: 0;
+      }
+      a.link{
+        @include opacity(1);
+        margin-top: 0;
+      }
+    }
+    .portfolio-hover{
+      height: 180px;
+    }
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.owl-carousel{
+  .portfolio-v1{
+    margin-bottom: 0;
+  }
+}
+
+.portfolio-v2{
+  position: relative;
+  margin-bottom: 30px;
+  background: none;
+  min-height: 768px;
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  @include media-breakpoint-down(md){
+    min-height: 560px;
+  } 
+  @include media-breakpoint-down(sm){
+    min-height: 460px;
+  }
+  &:after{
+    content: '';
+    @include size(100%, 100%);
+    background: rgba(0, 0, 0, 0.2);
+    @include opacity(0);
+    @include transition(all 0.35s);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+  .portfolio-height{
+    position: relative;
+    text-align: center;
+  }
+  .node-index{
+    @include size(45px, 45px);
+    color: $white;
+    line-height: 45px;
+    text-align: center;
+    border: 2px solid $theme_color;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+  }
+  .portfolio-content{
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    @include size(100%, auto);
+    left: 0;
+    bottom: 0;
+    z-index: 11;
+    text-align: left;
+    @include transition(all 0.35s);
+    padding: 50px;
+    @include media-breakpoint-down(md){
+      padding: 30px;
+    }
+    .content-inner{
+      position: relative;
+      padding-left: 60px; 
+      .title{  
+        @include transition(all 0.35s);
+        font-weight: 700;
+        text-transform: capitalize;
+        margin: 0;
+        a{
+          display: block;
+          color: $white;
+          font-size: 32px;
+          @include media-breakpoint-down(md){
+            font-size: 26px;
+            line-height: 34px;  
+          }
+          &:hover, &:focus, &:active{
+            text-decoration: underline;
+          }
+        }
+      }
+      .category{
+        @include transition(all 0.45s);
+        a{
+          color: $theme_color;
+          font-size: 14px;
+          text-transform: uppercase;
+          font-weight: 400;
+          letter-spacing: 0.5px;
+          &:hover, &:focus, &:active{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .portfolio-hover{
+    overflow: hidden;
+    height: 0;
+    transition: all 0.35s;
+    .desc{
+      font-size: 16px;
+      color: $white;
+      margin: 20px 0 25px;
+      overflow: hidden;
+      height: 65px;
+      line-height: 30px;
+    }
+  }
+  &:hover, &:active, &:focus{
+    &:after{
+      @include opacity(1);
+    }
+    .portfolio-content{
+      background: $theme-color-second; 
+    }
+    .portfolio-hover{
+      height: 180px;
+    }
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.owl-carousel{
+  .portfolio-v2{
+    margin-bottom: 0;
+  }
+}
+ 
+.portfolio-v4{
+  position: relative;
+  max-width: 500px;
+  margin: 0 1px;
+  margin-bottom: 30px;
+  background: none;
+  overflow: hidden;
+  .portfolio-images{
+    position: relative;
+    text-align: center;
+    &:after{
+      content: '';
+      @include size(100%, 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      @include opacity(1);
+      background: rgba(0, 0, 0, 0.5);
+      @include transition(all 0.35s);
+    }
+    .image-popup{
+      @include opacity(0);
+      @include size(32px, 32px);
+      background: $white;
+      line-height: 32px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 99;
+      text-align: center;
+      @include transition(all 0.35s);
+      margin-top: 30px;
+      &:hover{
+        color: $white;
+        background: $theme-color;
+      }
+    }
+    .link{
+      @include opacity(0);
+      @include transition(all 0.45s);
+      @include size(32px, 32px);
+      background: $white;
+      line-height: 33px;
+      position: absolute;
+      top: 55px;
+      right: 15px;
+      z-index: 99;
+      text-align: center;
+      margin-top: 45px;
+      &:hover{
+        color: $white;
+        background: $theme-color;
+      }
+    }
+  }
+  .content-front{
+    .action{
+      margin-top: 10px;
+      a{
+        text-transform: capitalize;
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 20px;
+        text-align: center;
+      }
+    }
+  }
+  .content-inner{
+    position: absolute;
+    @include size(100%, auto);
+    left: 0;
+    bottom: -100px;
+    z-index: 11;
+    @include transition(all 0.35s);
+    padding: 30px 35px;
+    background: #F3F3F3;
+    text-align: center;
+    @include opacity(0);
+    visibility: hidden;
+    @include media-breakpoint-down(md){
+      padding: 30px;
+    }
+    .title{  
+      @include transition(all 0.35s);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 32px;
+      text-transform: capitalize;
+    }
+    .desc{
+      margin: 10px 0;
+    }
+    .category{
+      @include transition(all 0.45s);
+      a{
+        color: $theme_color;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 400;
+        &:hover, &:focus, &:active{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &:hover, &:active, &:focus{
+    .portfolio-images{
+      .image-popup{
+        @include opacity(1);
+        margin-top: 0;
+      }
+      a.link{
+        @include opacity(1);
+        margin-top: 0;
+      }
+    }
+    .content-inner{
+      bottom: 0;
+      @include opacity(1);
+      visibility: visible;
+    }
+  }
+
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.portfolio-carousel-single{
+  max-width: 1080px;
+  margin: 0 auto;
+  .portfolio-item{
+    overflow: hidden;
+    .images{
+      text-align: center;
+      img{
+        max-width: 750px;
+        position: relative;
+        z-index: 9;
+      }
+      .image-popup{
+        position: absolute;
+        left: 50%;
+        z-index: 99;
+        @include size(32px, 32px);
+        margin-left: -16px;
+        line-height: 32px;
+        text-align: center;
+        background: $black-2;
+        color: $white;
+        &:hover{
+          background: lighten($black-2, 10%);
+        }
+      }
+      .read-more{
+        position: absolute;
+        right: 0;
+        bottom: 30px;
+        z-index: 1;
+        width: 300px;
+        text-align: right;
+        a{
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 12px;
+          letter-spacing: 1px;
+          @include transition(all 1s);
+          padding-right: 40px;
+          @include opacity(0);
+          color: $black;
+          &:hover{
+            color: $theme_color;
+          }
+        }
+        &:after{
+          content: "";
+          @include size(0px, 1px);
+          background: $black-2;
+          position: absolute;
+          bottom: 0; 
+          left: 0;
+          @include transition(all 1s);
+        }
+      }
+    }
+    .portfolio-content{
+      position: absolute;
+      top: 100px;
+      left: 50px;
+      z-index: 11;
+      @include media-breakpoint-down(md){
+        left: 30px;
+      }
+      &:after{
+        content: "";
+        @include transition(all 1s);
+        @include size(1px, 0);
+        background: $black-2;
+        position: absolute;
+        top: -110px;
+        left: 0;
+      }
+      .category{
+        margin-bottom: 5px;
+        a{
+          text-transform: uppercase;
+          color: $black-2;
+          font-weight: 700;
+          letter-spacing: 1px;
+          background: $white;
+          display: inline-block;
+          padding: 0 5px;
+          font-size: 12px;
+          &:hover{
+            color: $theme_color;
+          }
+        }
+      }
+      .title{ 
+        background: rgba(255, 255, 255, 0.8);
+        padding: 15px 20px 5px;
+        max-width: 350px;
+        position: relative;
+        padding-bottom: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 0;
+        &:after{
+          content: '';
+          @include size(60px, 2px);
+          background: $theme_color;
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          z-index: 9;
+        }
+        a{
+          font-size: 20px;
+          font-weight: 600; 
+          text-transform: uppercase;
+          color: $theme-color-second;
+          &:hover{
+            color: $theme_color;
+          }
+        }
+      }
+      .desc{
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px 20px 20px;
+        max-width: 350px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 0;
+      }
+      .category {
+        -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        -moz-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        -ms-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        -o-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+        -webkit-transform: translate(0, -70%);
+        -moz-transform: translate(0, -70%);
+        -ms-transform: translate(0, -70%);
+        -o-transform: translate(0, -70%);
+        transform: translate(0, -70%);
+        ms-transform: translate(0, -70%);
+        @include opacity(0);
+      }
+      .title {
+        -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.9s;
+        -moz-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.9s;
+        -ms-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.9s;
+        -o-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.9s;
+        transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 0.9s;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        ms-transform: translate(0, -50%);
+        @include opacity(0);
+      }
+      .desc {
+        -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+        -moz-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+        -ms-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+        -o-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+        transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+        -webkit-transform: translate(0, -30%);
+        -moz-transform: translate(0, -30%);
+        -ms-transform: translate(0, -30%);
+        -o-transform: translate(0, -30%);
+        transform: translate(0, -30%);
+        ms-transform: translate(0, -30%);
+        @include opacity(0);
+      }
+    }
+    .image-popup {
+      -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+      -moz-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+      -ms-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+      -o-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+      transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1) 1.3s;
+      bottom: -30px;
+      @include opacity(0);
+    }
+  }
+  .active-effect{
+    .portfolio-item .portfolio-content{
+      &:after{
+        height: 100px;
+      }
+      .category, .title, .desc{ 
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+        ms-transform: translate(0, 0);
+        @include opacity(1);
+      }
+    }
+    .image-popup{
+      @include opacity(1);
+      bottom: 20px;
+    }
+    .portfolio-item .images .read-more{
+      a{
+        padding-right: 10px;
+        @include opacity(1);
+      }
+      &:after{
+        width: 300px;
+      }
+    }
+  }
+}
+
+.text-light{
+  .portfolio-carousel-single{
+    .portfolio-item{
+      .portfolio-content::after{
+        background: $white;
+      }
+      .images .read-more{
+        &:after{
+          background: $white;
+        }
+        a{
+          color: $white;
+        }
+      }
+    }
+  }
+}

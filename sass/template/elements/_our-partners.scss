@@ -1,0 +1,32 @@
+.gsc-our-partners{
+  @include clearfix();
+  margin-bottom: 45px;
+  .image{
+    width: 35%;
+    float: left;
+    @media(max-width: 400px){
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .content-inner{
+    width: 65%;
+    float: left;
+    padding-left: 30px;
+    @media(max-width: 400px){
+      width: 100%;
+    }
+    .title{
+      font-size: 18px;
+      color: $black;
+      font-weight: 700;
+    }
+    .info{
+      font-size: 12px;
+      padding: 5px 0 12px;
+      .category{
+        color: $theme-color;
+      }
+    }
+  }
+}

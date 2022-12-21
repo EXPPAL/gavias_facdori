@@ -1,0 +1,139 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+ 
+<!-- Start Display article for teaser page -->
+{% if view_mode == 'teaser' %} 
+
+  <div class="team-block team-v1">
+    <div class="team-image">
+      {{ content.field_team_image }}
+      <div class="socials-team">
+        {% if node.field_team_facebook.value %}
+          <a class="gva-social" href="{{ node.field_team_facebook.value }}"><i class="fab fa-facebook"></i></a>
+        {% endif %} 
+        {% if node.field_team_google.value %}
+          <a class="gva-social" href="{{ node.field_team_google.value }}"><i class="fab fa-google"></i></a>
+        {% endif %} 
+        {% if node.field_team_pinterest.value %}
+          <a class="gva-social" href="{{ node.field_team_pinterest.value }}"><i class="fab fa-pinterest"></i></a>
+        {% endif %} 
+        {% if node.field_team_twitter.value %}
+          <a class="gva-social" href="{{ node.field_team_twitter.value }}"><i class="fab fa-twitter"></i></a>
+        {% endif %} 
+      </div>
+    </div>
+    <div class="team-content">
+      <div class="team-name"><a href="{{ url }}">{{ node.field_team_name.value|e }}</a></div>
+      <div class="team-job">{{ node.field_team_position.value|e }}</div>
+      <div class="team-skills">
+        {% for item in node.field_team_skills %}
+          {% set skill = item.value|split('--') %}
+          {% if skill['0'] and skill['1'] %}
+            <div class="team-skill">
+              <div class="progress-label">{{ skill['0'] }}</div>
+               <div class="progress">
+                 <div class="progress-bar" data-progress-animation="{{ skill['1'] }}%"><span></span></div>
+                 <span class="percentage"><span></span>{{ skill['1'] }}%</span>
+              </div>
+            </div>
+          {% endif %}  
+        {% endfor %} 
+      </div>
+    </div>
+  </div>
+
+{% elseif view_mode == 'teaser_2' %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="team-block team-v2">
+    <div class="team-image">
+      {{ content.field_team_image }}
+    </div>
+    <div class="team-content">
+      <div class="team-name"><a href="{{ url }}">{{ node.field_team_name.value|e }}</a></div>
+      {% if node.field_team_position.value %}   
+        <div class="team-job">{{ node.field_team_position.value|e }}</div>
+      {% endif %}
+      <div class="socials-team">
+        {% if node.field_team_facebook.value %}
+          <a class="gva-social" href="{{ node.field_team_facebook.value }}"><i class="fab fa-facebook"></i></a>
+        {% endif %} 
+        {% if node.field_team_google.value %}
+          <a class="gva-social" href="{{ node.field_team_google.value }}"><i class="fab fa-google"></i></a>
+        {% endif %} 
+        {% if node.field_team_pinterest.value %}
+          <a class="gva-social" href="{{ node.field_team_pinterest.value }}"><i class="fab fa-pinterest"></i></a>
+        {% endif %} 
+        {% if node.field_team_twitter.value %}
+          <a class="gva-social" href="{{ node.field_team_twitter.value }}"><i class="fab fa-twitter"></i></a>
+        {% endif %} 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Display article for teaser page -->
+{% else %}
+<!-- Start Display article for detail page -->
+
+<article{{ attributes.addClass(classes).addClass('node-detail') }}>
+  <div class="team-single-page">
+
+    <div class="team-name clearfix">
+      <div class="name">{{ node.field_team_name.value|e }}</div>
+      <div class="job">{{ node.field_team_position.value|e }}</div>
+      <div class="line"><span class="one"></span><span class="second"></span><span class="three"></span></div>
+    </div> 
+    <div class="team-description">{{ content.field_team_description }}</div>
+    <div class="team-info">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-xs-12">
+          <div class="team-image">{{ content.field_team_image }}</div>
+        </div>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+          <div class="team-contact">
+            <div class="heading">{{'Contact Info'|t}}</div>
+            <div class="content-inner">{{ content.field_team_contact }}</div>
+            <div class="socials">
+              {% for item in node.field_team_social %}
+                <a class="gva-social" href="{{ item.getFieldCollectionItem().field_team_social_link.value|e }}">
+                  <i class="{{ item.getFieldCollectionItem().field_team_social_icon.value|e }}"></i>
+                </a>
+              {% endfor %} 
+            </div>
+          </div>
+          <div class="team-education">
+            <div class="heading">{{'Education'|t}}</div>
+            <div class="content-inner">{{ content.field_team_education }}</div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+      {{ content|without('field_team_name', 'field_team_contact', 'field_team_image', 'field_team_contact', 'field_team_quote', 'field_team_social', 'field_team_education', 'field_team_position', 'field_team_email', 'field_team_description', 'comment') }}
+    </div>
+
+    <div class="team-quote"> {{content.field_team_quote}} </div>
+
+    {% if content.comment %}
+      <div id="node-single-comment">
+        {{ content.comment }}
+      </div>
+    {% endif %}  
+
+  </div>
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}
+

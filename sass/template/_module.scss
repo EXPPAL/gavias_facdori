@@ -1,0 +1,240 @@
+.poll{
+	.poll-item{
+		margin-top: 20px;
+		.heading{
+			position: relative;
+			.text{
+				font-weight: 700;
+				color: #333333;
+				padding-right: 40px;
+			}
+			.percent{
+				display: inline-block;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 9;
+				font-weight: 700;
+			}
+		}
+		.bar .foreground{
+			background: $theme-color;
+		}
+	}
+	.total{
+		margin-top: 20px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.choices{
+		.form-item.form-item-choice{
+			input.form-radio{
+				margin: 0!important;
+			}
+			label{
+				vertical-align: text-top;
+				margin-left: 5px;
+			}
+		}
+	}
+}
+
+.block-poll{
+	ul.links{
+		text-align: center;
+		overflow: hidden;
+		padding: 15px 0 0;
+		li{
+			display: inline-block;
+			margin-right: 20px;
+			a{
+				padding-right: 10px;
+				position: relative;
+				@include transition(all 0.35s);
+				&:after{
+					content: "\f105";
+					position: absolute;
+					top: -1px;
+					right: 0;
+					font-family: "FontAwesome";
+				}
+				&:hover{
+					padding-right: 15px;
+				}
+			}
+			&:last-child{
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* perfect-scrollbar v0.6.7 */
+.ps-container {
+  -ms-touch-action: none;
+  overflow: hidden !important; }
+  .ps-container.ps-active-x > .ps-scrollbar-x-rail,
+  .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+    display: block; }
+  .ps-container.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: #eee;
+      @include opacity(.9); }
+      .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #999; }
+    .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: #eee;
+      @include opacity(.9); }
+      .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #999; }
+  .ps-container > .ps-scrollbar-x-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    border-radius: 4px;
+    @include opacity(0);
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+    -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    bottom: 3px;
+    /* there must be 'bottom' for ps-scrollbar-x-rail */
+    height: 8px; }
+    .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #aaa;
+      border-radius: 4px;
+      -webkit-transition: background-color 0.2s linear;
+      -moz-transition: background-color 0.2s linear;
+      -o-transition: background-color 0.2s linear;
+      transition: background-color 0.2s linear;
+      bottom: 0;
+      /* there must be 'bottom' for ps-scrollbar-x */
+      height: 8px; }
+  .ps-container > .ps-scrollbar-y-rail {
+    display: none;
+    position: absolute;
+    /* please don't change 'position' */
+    border-radius: 4px;
+    @include opacity(0);
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+    -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    right: 3px;
+    /* there must be 'right' for ps-scrollbar-y-rail */
+    width: 4px; }
+    .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+      position: absolute;
+      /* please don't change 'position' */
+      background-color: #aaa;
+      border-radius: 4px;
+      -webkit-transition: background-color 0.2s linear;
+      -moz-transition: background-color 0.2s linear;
+      -o-transition: background-color 0.2s linear;
+      transition: background-color 0.2s linear;
+      right: 0;
+      /* there must be 'right' for ps-scrollbar-y */
+      width: 5px; }
+  .ps-container:hover.ps-in-scrolling {
+    pointer-events: none; }
+    .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
+      background-color: #eee;
+      @include opacity(.9); }
+      .ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+        background-color: #999; }
+    .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+      background-color: #eee;
+      @include opacity(.9); }
+      .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+        background-color: #999; }
+  .ps-container:hover > .ps-scrollbar-x-rail,
+  .ps-container:hover > .ps-scrollbar-y-rail {
+    @include opacity(.6); }
+  .ps-container:hover > .ps-scrollbar-x-rail:hover {
+    background-color: #eee;
+    @include opacity(.6); }
+    .ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+      background-color: #999; }
+  .ps-container:hover > .ps-scrollbar-y-rail:hover {
+    background-color: #eee;
+    @include opacity(.6); }
+    .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+      background-color: #999; }
+
+
+.uk-slideset-init{
+  position: relative;
+  ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  .uk-slideset-nav{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    @include media-breakpoint-down(xs){
+      width: 100%;
+    }
+    li{
+      float: left;
+      margin-right: 10px;
+      list-style-type: none;
+      @include media-breakpoint-down(xs){
+        float: none;
+        display: inline-block;
+      }
+      a{
+        @include size(22px, 10px);
+        @include border-radius(30px);
+        display: inline-block;
+        border: 2px solid $theme-color;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      &.uk-active{
+        a{
+          background: $theme-color;
+        }
+      }
+    }
+  }
+  &.nav-slideset-top{
+    .uk-slideset-nav{
+      top: -30px;
+    }
+  }
+  &.nav-slideset-bottom{
+    .uk-slideset-nav{
+      bottom: -30px;
+      top: auto;
+      left: 0; 
+      text-align: center;
+      li{
+        display: inline-block;
+        float: none;
+      }
+    }
+  }
+}
+
+.text-light{
+  .uk-slideset-init{
+    .uk-slideset-nav li{
+      a{
+        border-color: $white;
+      }
+      &.uk-active{
+        a{
+          background: $white;
+        }
+      }
+    }
+  }
+}

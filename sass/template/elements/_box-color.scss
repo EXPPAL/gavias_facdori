@@ -1,0 +1,73 @@
+.gsc-box-color{
+  position: relative;
+  @include border-radius(6px);
+  margin-bottom: 35px;
+  background: $theme-color;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  .box-content{
+    text-align: center;
+    .content-inner{
+      padding: 15px 30px 15px;
+      @include media-breakpoint-down(sm){
+        padding: 15px;
+      }
+    }
+    .box-title{
+      font-size: 16px;
+      line-height: 30px;
+      text-transform: none;
+      font-weight: 400;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .icon{
+      font-size: 24px;
+      margin-left: 10px;
+    }
+    .content{
+      font-size: 16px;
+      line-height: 25px;
+    }
+    .action{
+      margin: 15px 0 0;
+    }
+    .link{
+      display: inline-block;
+      font-weight: 700;
+      @include transition(all 0.35s);
+      @include border-radius(6px);
+      font-size: 12px;
+      z-index: 9;
+      padding: 6px 20px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.3);
+      text-transform: capitalize;
+      color: $white;
+      .text{
+        position: relative;
+        z-index: 9;
+      }
+      .background{
+        @include size(100%, 100%);
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 1;
+        @include transition(all 0.35s);
+      }
+      &:hover{
+        .background{
+          background: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  &.text-white{
+    .box-title, .content, .link{
+      color: $white;
+    }
+  }
+}

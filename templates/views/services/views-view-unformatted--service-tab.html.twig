@@ -1,0 +1,24 @@
+<div class="gsc-carousel-content"> 
+   <div class="carousel-nav">
+      <div class="tab-carousel-nav slick-slider">
+        {% for row in rows %}
+          {% set tmp_content %}{{ row.content }}{% endset %}
+          <div class="slick-slide">
+            <a class="link-service">
+              {% set icon %} {{tmp_content|split('<div class="sp-info">')[3]|striptags|trim|raw }} {% endset %}
+              {% if icon %}<i class="{{icon}}"></i>{% endif %}
+              {{ tmp_content|split('<div class="sp-info">')[1]|striptags|trim|raw }}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+   </div>
+
+   <div class="tab-lists-content">
+      <div class="tab-carousel-list-here slick-slider"> 
+        {% for row in rows %}
+            <div class="slick-slide">{{ row.content }}</div>
+         {% endfor %}
+      </div>
+   </div>      
+</div>

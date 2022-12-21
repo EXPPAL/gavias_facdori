@@ -1,0 +1,82 @@
+.gsc-quotes-rotator{
+  .cbp-qtrotator {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  .cbp-qtrotator .cbp-qtcontent {
+    position: absolute;
+    min-height: 100px;
+    border-top: 1px solid $border-color;
+    padding: 10px 0;
+    top: 0;
+    z-index: 0;
+    opacity: 0;
+    width: 100%;
+    .content-title{
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: $black;
+      text-transform: capitalize;
+      @include media-breakpoint-down(sm){
+        font-size: 28px;
+        line-height: 36px;
+      }
+    }
+    .content-inner{
+      font-size: 14px;
+      line-height: 30px;
+    }
+  }
+
+  .no-js .cbp-qtrotator .cbp-qtcontent {
+    border-bottom: none;
+  }
+
+  .cbp-qtrotator .cbp-qtcontent.cbp-qtcurrent,
+  .no-js .cbp-qtrotator .cbp-qtcontent {
+    position: relative; 
+    z-index: 100;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .cbp-qtrotator .cbp-qtcontent:before,
+  .cbp-qtrotator .cbp-qtcontent:after {
+    content: " ";
+    display: table;
+  }
+
+  .cbp-qtrotator .cbp-qtcontent:after {
+    clear: both;
+  }
+
+  .cbp-qtprogress {
+    position: absolute;
+    background: $theme-color;
+    height: 1px;
+    width: 0%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .cbp-qtrotator blockquote {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.text-light{
+    color: $white;
+    .cbp-qtrotator .cbp-qtcontent{
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      .content-inner{
+        color: $white;
+      }
+      .content-title{
+        color: $white;
+      }
+    }
+  }
+}

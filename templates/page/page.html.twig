@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Gavias's theme implementation to display a single Drupal page.
+ */
+#}
+{% set has_breadcrumb = '' %}
+<div class="gva-body-wrapper">
+	<div class="body-page gva-body-page">
+	   {% include header_skin %}
+		
+	   {% if page.breadcrumbs %}
+	   	{% set has_breadcrumb = ' has-breadcrumb' %}
+			<div class="breadcrumbs">
+				{{ page.breadcrumbs }}
+			</div>
+		{% endif %}
+		
+		<div role="main" class="main main-page{{ has_breadcrumb }}">
+		
+			<div class="clearfix"></div>
+			{% if page.slideshow_content %}
+				<div class="slideshow_content area">
+					{{ page.slideshow_content }}
+				</div>
+			{% endif %}	
+
+			{% if page.help %}
+				<div class="help gav-help-region">
+					<div class="container">
+						<div class="content-inner">
+							{{ page.help }}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="clearfix"></div>
+			{% if page.before_content %}
+				<div class="before_content area">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								{{ page.before_content }}
+								</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			
+			<div class="clearfix"></div>
+			
+			<div id="content" class="content content-full">
+				<div class="container container-bg">
+					{% include '@gavias_facdori/page/main.html.twig' %}
+				</div>
+			</div>
+
+			{% if page.highlighted %}
+				<div class="highlighted area">
+					<div class="container">
+						{{ page.highlighted }}
+					</div>
+				</div>
+			{% endif %}
+
+			{% if page.after_content %}
+				<div class="area after-content">
+					<div class="container">
+		          	<div class="content-inner">
+							 {{ page.after_content }}
+		          	</div>
+	        		</div>
+				</div>
+			{% endif %}
+			
+		</div>
+	</div>
+
+	{% include '@gavias_facdori/page/footer.html.twig' %}
+</div>
+
+{% include '@gavias_facdori/page/parts/quick-side.html.twig' %}

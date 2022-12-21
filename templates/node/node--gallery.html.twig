@@ -1,0 +1,53 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+<!-- Start Display article for teaser page -->
+{% if teaser == true %} 
+  <article{{ attributes.addClass() }}>
+    <div class="gallery-post text-center"> 
+      <div class="images lightGallery">{{ content.field_gallery_image }}</div>
+    </div>
+  </article>  
+<!-- End Display article for teaser page -->
+{% else %}
+<!-- Start Display article for detail page -->
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="post-block">
+    <div class="post-content">
+      <div class="text-center"> 
+        <div class="images lightGallery">{{ content.field_gallery_image }}</div>
+      </div>
+
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title text-left') }}>{{ label }}</h1>
+      {{ title_suffix }}
+      <div class="post-meta">
+        <span class="post-created"> {{date }} </span>
+      </div>
+
+      <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content|without('field_gallery_image', 'comment') }}
+      </div>
+      <div id="node-single-comment">
+        {{ content.comment }}
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}
