@@ -148,7 +148,7 @@ function gavias_facdori_preprocess_html(&$variables) {
     $variables['fonts'] = gavias_facdori_render_option_font();
     $variables['patterns'] = gavias_facdori_options_patterns();
     if(file_exists($theme_path . '/templates/addon/skins.html.twig')){
-      $variables['addon_template'] = $theme_path . '/templates/addon/skins.html.twig';
+      $variables['addon_template'] = 'themes/gavias_facdori/templates/addon/skins.html.twig';
     }
 
     if($user->hasPermission('administer gavias_customize')){

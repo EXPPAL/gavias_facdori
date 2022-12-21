@@ -39,6 +39,6 @@ regions:
   copyright: 'Copyright'
   other: 'Other'
 
-version: '2.0.2'
+version: '9.x'
 core_version_requirement: ^8.8 || ^9
 project: 'drupal'
